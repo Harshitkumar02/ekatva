@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Achievements - Ekatva Welfare Foundation</title>
+    <meta name="description" content="See the achievements and impact of Ekatva Welfare Foundation.">
+    
+    <!-- Common head content -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230d9488'/%3E%3Ctext x='50' y='55' font-size='60' fill='white' text-anchor='middle' font-family='Inter, sans-serif' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        main > section { transition: transform 0.5s ease-out; }
+        #preloader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: #ffffff; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out; }
+        .spinner { width: 48px; height: 48px; border: 5px solid #d1d5db; border-bottom-color: #0d9488; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 1s linear infinite; }
+        @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @keyframes bounce-in { 0% { opacity: 0; transform: scale(0.3) translateY(40px); } 50% { opacity: 1; transform: scale(1.05) translateY(0); } 70% { transform: scale(0.9) translateY(-10px); } 100% { transform: scale(1) translateY(0); } }
+        .bounce-reveal { animation-fill-mode: forwards; animation-delay: 0.2s; }
+        .reveal.visible .bounce-reveal { animation-name: bounce-in; animation-duration: 0.8s; }
+        .gradient-text { background: linear-gradient(to right, #0d9488, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #navbar { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        #navbar nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        #navbar .gradient-text { font-size: 1.25rem; }
+        #navbar .nav-link.active { color: #0d9488; font-weight: 600; }
+        .card-glow { transition: all 0.3s ease-out; }
+        .card-glow:hover { box-shadow: 0 15px 30px rgba(13, 148, 136, 0.3), 0 0 20px rgba(6, 182, 212, 0.2); }
+        .card-glow h3 { min-height: 3.5rem; word-break: break-word; }
+    </style>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: { DEFAULT: '#0d9488', 'hover': '#0f766e' }, secondary: '#06b6d4', accent: '#f59e0b', light: '#f9fafb', dark: '#111827' } } } }
+    </script>
+</head>
+<body class="bg-light text-dark/80">
+
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- Header -->
+    <header id="navbar" class="navbar sticky top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold gradient-text">Ekatva Welfare Foundation</a>
+            <div class="hidden md:flex items-center space-x-6">
+                 <a href="index.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navHome">Home</a>
+                <a href="about.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navAbout">About</a>
+                <a href="mission.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navMission">Mission</a>
+                <a href="achievements.html" class="nav-link text-gray-600 hover:text-primary transition active" data-lang-key="navAchievements">Achievements</a>
+                <a href="initiatives.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navInitiatives">Initiatives</a>
+                <a href="gallery.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navGallery">Gallery</a>
+                <a href="team.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navTeam">Team</a>
+                <a href="impact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navImpact">Impact</a>
+                <a href="partners.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navPartners">Partners</a>
+                <a href="contact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navContact">Contact</a>
+                <button id="lang-switcher" class="bg-primary/10 text-primary py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-dark z-50">
+                <svg id="menu-open-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg id="menu-close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-8 pt-24 space-y-4">
+            <a href="index.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navHome">Home</a>
+            <a href="about.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAbout">About</a>
+            <a href="mission.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navMission">Mission</a>
+            <a href="achievements.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAchievements">Achievements</a>
+            <a href="initiatives.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navInitiatives">Initiatives</a>
+            <a href="gallery.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navGallery">Gallery</a>
+            <a href="team.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navTeam">Team</a>
+            <a href="impact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navImpact">Impact</a>
+            <a href="partners.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navPartners">Partners</a>
+            <a href="contact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navContact">Contact</a>
+            <div class="pt-4">
+                <button id="lang-switcher-mobile" class="w-full bg-primary/10 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="achievements" class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 gradient-text bounce-reveal" data-lang-key="achievementsTitle">Our Achievements</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-lang-key="achievementsSubtitle">Honored for our commitment to creating a positive social impact.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow">
+                        <img loading="lazy" src="images/swachh.jpg" alt="Swachh Survekshan Impact" class="w-full h-80 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement1Title">Swachh Survekshan 2024 - Rank 3</h3>
+                            <p class="text-gray-600" data-lang-key="achievement1Text">Lucknow secured 3rd position among Indian cities with over 10 lakh population. Ekatva played a key role by conducting targeted social media campaigns and organizing citizen engagement activities.</p>
+                        </div>
+                    </div>
+                    <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow" style="transition-delay: 200ms;">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1620755039914-b8224a24238a?q=80&w=1374&auto=format&fit=crop" alt="Water+ City Certification" class="w-full h-80 object-cover">
+                         <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement2Title">Water+ City Certification</h3>
+                            <p class="text-gray-600" data-lang-key="achievement2Text">Lucknow was declared a Water+ Certified City, recognizing its efforts in wastewater management and sustainable sanitation, supported by Ekatva's digital campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow" style="transition-delay: 400ms;">
+                         <img loading="lazy" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1470&auto=format&fit=crop" alt="Civic Participation" class="w-full h-80 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement3Title">Boosting Civic Participation</h3>
+                            <p class="text-gray-600" data-lang-key="achievement3Text">With Ekatva as the digital arm, Lucknow Nagar Nigam witnessed record engagement, turning civic updates into participatory conversations and increasing citizen feedback.</p>
+                        </div>
+                    </div>
+                     <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow" style="transition-delay: 600ms;">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1574939228834-3105d1b7829a?q=80&w=1470&auto=format&fit=crop" alt="Waste Management" class="w-full h-80 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement4Title">Excellence in Waste Management</h3>
+                            <p class="text-gray-600" data-lang-key="achievement4Text">Supported door-to-door garbage collection awareness and nala safai (drain cleaning) drives with compelling before-after visuals and educational posts.</p>
+                        </div>
+                    </div>
+                    <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow" style="transition-delay: 800ms;">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1516214152-3236e0b4a119?q=80&w=1470&auto=format&fit=crop" alt="Green Campaigns" class="w-full h-80 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement5Title">Plastic-Free & Clean-Green Campaigns</h3>
+                            <p class="text-gray-600" data-lang-key="achievement5Text">Boosted public participation in initiatives like Plastic-Free Lucknow and tree plantation drives through engaging content, contests, and influencer reels.</p>
+                        </div>
+                    </div>
+                    <div class="reveal bg-white rounded-xl overflow-hidden shadow-lg flex flex-col card-glow" style="transition-delay: 1000ms;">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1560421683-6223b8906236?q=80&w=1470&auto=format&fit=crop" alt="Smart City Coverage" class="w-full h-80 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold mb-2" data-lang-key="achievement6Title">Smart City Digital Coverage</h3>
+                            <p class="text-gray-600" data-lang-key="achievement6Text">Ensured high visibility for Smart City developments, from LED street lighting to digital waste tracking, through appealing visuals and regular updates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+     <footer class="bg-dark text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Ekatva</h3>
+                    <p class="text-sm" data-lang-key="footerBrandDesc">Driving change through digital engagement.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerQuickLinksTitle">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="hover:text-primary transition" data-lang-key="footerLinkAbout">About Us</a></li>
+                        <li><a href="initiatives.html" class="hover:text-primary transition" data-lang-key="footerLinkInitiatives">Initiatives</a></li>
+                        <li><a href="team.html" class="hover:text-primary transition" data-lang-key="footerLinkTeam">Team</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition" data-lang-key="footerLinkContact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerConnectTitle">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-primary transition" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" class="hover:text-primary transition" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9-6.1-1.4-12.1-4.1-16.4-6.4 0 0-2.4 4.5 3.7 7.2-2.1-.1-3.6-.8-3.6-.8 1.1 4.5 5.7 6.1 5.7 6.1-1.4.4-2.8.4-2.8.4 1.5 3.3 5.1 4.4 5.1 4.4-3.3 2-8.1 2.8-8.1 2.8 3.9 1.9 8.5 1.6 12.4-1.5 5.5-4.1 6.9-10.4 6.9-10.4s-1.4.5-2.9.5c.7-1.1 1.7-2.3 2.1-3.7 0 0-.4.3-1.2.5.5-.8 1.1-1.8 1.1-1.8z"></path></svg></a>
+                        <a href="#" class="hover:text-primary transition" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerNewsletterTitle">Newsletter</h4>
+                    <form>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email" data-lang-key="footerNewsletterPlaceholder" class="w-full bg-gray-800 text-white rounded-l-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            <button type="submit" class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary-hover">&rarr;</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p data-lang-key="footerCopyright">&copy; 2024 Ekatva Welfare Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const translations = {
+                en: {
+                    navHome: 'Home',
+                    navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navContact: 'Contact',
+                    achievementsTitle: 'Our Achievements',
+                    achievementsSubtitle: 'Honored for our commitment to creating a positive social impact.',
+                    achievement1Title: 'Swachh Survekshan 2024 - Rank 3',
+                    achievement1Text: 'Lucknow secured 3rd position among Indian cities with over 10 lakh population. Ekatva played a key role by conducting targeted social media campaigns and organizing citizen engagement activities.',
+                    achievement2Title: 'Water+ City Certification',
+                    achievement2Text: "Lucknow was declared a Water+ Certified City, recognizing its efforts in wastewater management and sustainable sanitation, supported by Ekatva's digital campaigns.",
+                    achievement3Title: 'Boosting Civic Participation',
+                    achievement3Text: "With Ekatva as the digital arm, Lucknow Nagar Nigam witnessed record engagement, turning civic updates into participatory conversations and increasing citizen feedback.",
+                    achievement4Title: 'Excellence in Waste Management & Nala Safai',
+                    achievement4Text: 'Supported door-to-door garbage collection awareness and nala safai (drain cleaning) drives with compelling before-after visuals and educational posts.',
+                    achievement5Title: 'Plastic-Free and Clean-Green Campaigns',
+                    achievement5Text: 'Boosted public participation in initiatives like Plastic-Free Lucknow and tree plantation drives through engaging content, contests, and influencer reels.',
+                    achievement6Title: 'Smart City Digital Coverage',
+                    achievement6Text: 'Ensured high visibility for Smart City developments, from LED street lighting to digital waste tracking, through appealing visuals and regular updates.',
+                    footerBrandDesc: 'Driving change through digital engagement.',
+                    footerQuickLinksTitle: 'Quick Links', footerLinkAbout: 'About Us', footerLinkInitiatives: 'Initiatives', footerLinkTeam: 'Team', footerLinkContact: 'Contact',
+                    footerConnectTitle: 'Connect',
+                    footerNewsletterTitle: 'Newsletter', footerNewsletterPlaceholder: 'Your email',
+                    footerCopyright: '&copy; 2024 Ekatva Welfare Foundation. All rights reserved.'
+                },
+                hi: {
+                    navHome: 'होम',
+                    navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navContact: 'संपर्क',
+                    achievementsTitle: 'हमारी उपलब्धियां', 
+                    achievementsSubtitle: 'एक सकारात्मक सामाजिक प्रभाव बनाने की हमारी प्रतिबद्धता के लिए सम्मानित।',
+                    achievement1Title: 'स्वच्छ सर्वेक्षण 2024 - रैंक 3', 
+                    achievement1Text: 'लखनऊ ने 10 लाख से अधिक आबादी वाले भारतीय शहरों में तीसरा स्थान हासिल किया। एकत्व ने लक्षित सोशल मीडिया अभियानों और नागरिक जुड़ाव गतिविधियों का आयोजन करके जन जागरूकता बढ़ाने में महत्वपूर्ण भूमिका निभाई।',
+                    achievement2Title: 'वाटर+ सिटी सर्टिफिकेशन', 
+                    achievement2Text: "लखनऊ को वाटर+ सर्टिफाइड सिटी घोषित किया गया, जो एकत्व के डिजिटल अभियानों द्वारा समर्थित अपशिष्ट जल प्रबंधन और स्थायी स्वच्छता में इसके प्रयासों को मान्यता देता है।",
+                    achievement3Title: 'नागरिक भागीदारी को बढ़ावा देना', 
+                    achievement3Text: "एकत्व के डिजिटल विंग के साथ, लखनऊ नगर निगम ने रिकॉर्ड जुड़ाव देखा, नागरिक अपडेट को भागीदारीपूर्ण बातचीत में बदल दिया और नागरिक प्रतिक्रिया में वृद्धि की।",
+                    achievement4Title: 'अपशिष्ट प्रबंधन और नाला सफाई में उत्कृष्टता',
+                    achievement4Text: 'घर-घर जाकर कचरा संग्रहण जागरूकता और नाला सफाई अभियानों को आकर्षक पहले-बाद के दृश्यों और शैक्षिक पोस्ट के साथ समर्थन दिया।',
+                    achievement5Title: 'प्लास्टिक मुक्त और स्वच्छ-हरित अभियान',
+                    achievement5Text: 'प्लास्टिक-मुक्त लखनऊ और वृक्षारोपण अभियान जैसी पहलों में आकर्षक सामग्री, प्रतियोगिताओं और प्रभावशाली रीलों के माध्यम से सार्वजनिक भागीदारी को बढ़ावा दिया।',
+                    achievement6Title: 'स्मार्ट सिटी डिजिटल कवरेज',
+                    achievement6Text: 'एलईडी स्ट्रीट लाइटिंग से लेकर डिजिटल अपशिष्ट ट्रैकिंग तक, स्मार्ट सिटी के विकास के लिए आकर्षक दृश्यों और नियमित अपडेट के माध्यम से उच्च दृश्यता सुनिश्चित की।',
+                    footerBrandDesc: 'डिजिटल जुड़ाव के माध्यम से बदलाव लाना।',
+                    footerQuickLinksTitle: 'त्वरित सम्पक', footerLinkAbout: 'हमारे बारे में', footerLinkInitiatives: 'पहल', footerLinkTeam: 'टीम', footerLinkContact: 'संपर्क',
+                    footerConnectTitle: 'जुड़ें',
+                    footerNewsletterTitle: 'न्यूज़लेटर', footerNewsletterPlaceholder: 'आपका ईमेल',
+                    footerCopyright: '&copy; 2024 एकत्व वेलफेयर फाउंडेशन। सर्वाधिकार सुरक्षित।'
+                }
+            };
+
+            let currentLanguage = localStorage.getItem('ekatvaLang') || 'en';
+            const langSwitchers = [document.getElementById('lang-switcher'), document.getElementById('lang-switcher-mobile')];
+            const translatableElements = document.querySelectorAll('[data-lang-key]');
+            
+            const setLanguage = (lang) => {
+                currentLanguage = lang;
+                localStorage.setItem('ekatvaLang', lang);
+                translatableElements.forEach(el => {
+                    const key = el.dataset.langKey;
+                    if (translations[lang] && translations[lang][key]) {
+                        if (el.tagName === 'INPUT' && el.type === 'email') { el.placeholder = translations[lang][key]; } 
+                        else { el.innerHTML = translations[lang][key]; }
+                    }
+                });
+                langSwitchers.forEach(switcher => { if(switcher) switcher.textContent = lang === 'en' ? 'हिन्दी' : 'English'; });
+            };
+            
+            langSwitchers.forEach(switcher => { 
+                if(switcher) switcher.addEventListener('click', () => { 
+                    const newLang = currentLanguage === 'en' ? 'hi' : 'en';
+                    setLanguage(newLang);
+                }); 
+            });
+            
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => { preloader.style.opacity = '0'; setTimeout(() => { preloader.style.display = 'none'; }, 500); });
+            
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+            const body = document.body;
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('translate-x-full');
+                if (menuOpenIcon) menuOpenIcon.classList.toggle('hidden');
+                if (menuCloseIcon) menuCloseIcon.classList.toggle('hidden');
+                body.classList.toggle('overflow-hidden');
+                mobileMenuBackdrop.classList.toggle('hidden');
+            };
+            if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+            if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', toggleMenu);
+            document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => { if(!mobileMenu.classList.contains('translate-x-full')) { toggleMenu(); } }); });
+
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            
+            document.querySelectorAll('.card-glow').forEach(card => {
+                const intensity = 15;
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                    const middleX = rect.width / 2; const middleY = rect.height / 2;
+                    const rotateX = ((y - middleY) / middleY) * -intensity; const rotateY = ((x - middleX) / middleX) * intensity;
+                    card.style.transition = 'transform 0.1s ease-out';
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transition = 'transform 0.4s ease-out';
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+            
+            setLanguage(currentLanguage);
+        });
+    </script>
+</body>
+</html>
+
