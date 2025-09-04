@@ -213,21 +213,31 @@
     
     <!-- Mobile Menu -->
     <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div class="p-8 pt-24 space-y-4">
-            <a href="index.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navHome">Home</a>
-            <a href="about.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAbout">About</a>
-            <a href="mission.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navMission">Mission</a>
-            <a href="achievements.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAchievements">Achievements</a>
-            <a href="initiatives.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navInitiatives">Initiatives</a>
-            <a href="gallery.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navGallery">Gallery</a>
-            <a href="team.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navTeam">Team</a>
-            <a href="impact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navImpact">Impact</a>
-            <a href="partners.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navPartners">Partners</a>
-            <a href="careers.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navCareers">Careers</a>
-            <a href="contact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navContact">Contact</a>
-            <div class="pt-4">
-                <button id="lang-switcher-mobile" class="w-full bg-primary/10 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl">
+        <div class="flex flex-col h-full">
+            <div class="p-5 border-b flex justify-between items-center">
+                <a href="index.html" class="text-xl font-bold gradient-text">Ekatva Welfare Foundation</a>
+            </div>
+            <div class="flex-grow p-4 space-y-2 overflow-y-auto">
+                <a href="index.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navHome">Home</a>
+                <a href="about.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navAbout">About</a>
+                <a href="mission.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navMission">Mission</a>
+                <a href="achievements.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navAchievements">Achievements</a>
+                <a href="initiatives.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navInitiatives">Initiatives</a>
+                <a href="gallery.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navGallery">Gallery</a>
+                <a href="team.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navTeam">Team</a>
+                <a href="impact.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navImpact">Impact</a>
+                <a href="partners.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navPartners">Partners</a>
+                <a href="careers.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navCareers">Careers</a>
+                <a href="contact.html" class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navContact">Contact</a>
+            </div>
+            <div class="p-6 border-t">
+                <button id="lang-switcher-mobile" class="w-full bg-primary/10 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-primary/20 transition-colors mb-4">हिन्दी</button>
+                <div class="flex justify-center space-x-6 text-gray-500">
+                    <a href="#" class="hover:text-primary transition" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="hover:text-primary transition" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9-6.1-1.4-12.1-4.1-16.4-6.4 0 0-2.4 4.5 3.7 7.2-2.1-.1-3.6-.8-3.6-.8 1.1 4.5 5.7 6.1 5.7 6.1-1.4.4-2.8.4-2.8.4 1.5 3.3 5.1 4.4 5.1 4.4-3.3 2-8.1 2.8-8.1 2.8 3.9 1.9 8.5 1.6 12.4-1.5 5.5-4.1 6.9-10.4 6.9-10.4s-1.4.5-2.9.5c.7-1.1 1.7-2.3 2.1-3.7 0 0-.4.3-1.2.5.5-.8 1.1-1.8 1.1-1.8z"></path></svg></a>
+                    <a href="#" class="hover:text-primary transition" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                </div>
             </div>
         </div>
     </div>
@@ -470,7 +480,7 @@
             const translations = {
                 en: {
                     navHome: 'Home',
-                    navAbout: 'About', navMission: 'Mission', navImpact: 'Impact', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navAchievements: 'Achievements', navPartners: 'Partners', navContact: 'Contact',
+                    navAbout: 'About', navMission: 'Mission', navImpact: 'Impact', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navAchievements: 'Achievements', navPartners: 'Partners', navCareers: 'Careers', navContact: 'Contact',
                     heroTitle: 'Amplifying Voices, Inspiring <span class="text-primary">Action</span>.',
                     heroSubtitle: 'We create meaningful content that drives real results for communities across India, fostering civic engagement through the power of digital media.',
                     getInvolvedBtn: 'Get Involved',
@@ -503,7 +513,7 @@
                 },
                 hi: {
                     navHome: 'होम',
-                    navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navImpact: 'प्रभाव', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navAchievements: 'उपलब्धियां', navPartners: 'साझेदार', navContact: 'संपर्क',
+                    navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navImpact: 'प्रभाव', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navAchievements: 'उपलब्धियां', navPartners: 'साझेदार', navCareers: 'करियर', navContact: 'संपर्क',
                     heroTitle: 'आवाज़ें बुलंद करना, <span class="text-primary">कार्रवाई</span> को प्रेरित करना।',
                     heroSubtitle: 'हम सार्थक सामग्री बनाते हैं जो पूरे भारत में समुदायों के लिए वास्तविक परिणाम देती है, डिजिटल मीडिया की शक्ति के माध्यम से नागरिक जुड़ाव को बढ़ावा देती है।',
                     getInvolvedBtn: 'शामिल हों',

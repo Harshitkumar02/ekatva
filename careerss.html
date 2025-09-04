@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Mission - Ekatva Welfare Foundation</title>
-    <meta name="description" content="Explore the core mission of Ekatva Welfare Foundation.">
+    <title>Careers - Ekatva Welfare Foundation</title>
+    <meta name="description" content="Join the Ekatva Welfare Foundation team and make a difference.">
     
     <!-- Common head content -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230d9488'/%3E%3Ctext x='50' y='55' font-size='60' fill='white' text-anchor='middle' font-family='Inter, sans-serif' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
@@ -16,7 +16,7 @@
     <!-- Shared Styles -->
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        main > section { transition: transform 0.5s ease-out; }
+        main { padding-top: 100px; } /* Add padding to push content below fixed nav */
         #preloader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: #ffffff; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out; }
         .spinner { width: 48px; height: 48px; border: 5px solid #d1d5db; border-bottom-color: #0d9488; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 1s linear infinite; }
         @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -26,14 +26,14 @@
         .bounce-reveal { animation-fill-mode: forwards; animation-delay: 0.2s; }
         .reveal.visible .bounce-reveal { animation-name: bounce-in; animation-duration: 0.8s; }
         .gradient-text { background: linear-gradient(to right, #0d9488, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        #navbar { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
-        #navbar nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-        #navbar .gradient-text { font-size: 1.25rem; }
+        #navbar nav { transition: padding 0.3s ease-in-out; }
         #navbar .nav-link.active { color: #0d9488; font-weight: 600; }
+        #navbar .gradient-text { transition: font-size 0.3s ease-in-out; }
+        #navbar.scrolled { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        #navbar.scrolled nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        #navbar.scrolled .gradient-text { font-size: 1.25rem; }
         .card-glow { transition: all 0.3s ease-out; }
         .card-glow:hover { box-shadow: 0 15px 30px rgba(13, 148, 136, 0.3), 0 0 20px rgba(6, 182, 212, 0.2); }
-        .mission-icon-bounce { animation: float-up-down 3s ease-in-out infinite; }
-        @keyframes float-up-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
     </style>
     <script>
         tailwind.config = { theme: { extend: { colors: { primary: { DEFAULT: '#0d9488', 'hover': '#0f766e' }, secondary: '#06b6d4', accent: '#f59e0b', light: '#f9fafb', dark: '#111827' } } } }
@@ -44,20 +44,20 @@
     <div id="preloader"><div class="spinner"></div></div>
 
     <!-- Header -->
-    <header id="navbar" class="navbar sticky top-0 left-0 right-0 z-40 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold gradient-text">Ekatva Welfare Foundation</a>
+    <header id="navbar" class="navbar fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold gradient-text">Ekatva Welfare foundation</a>
             <div class="hidden md:flex items-center space-x-6">
                  <a href="index.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navHome">Home</a>
                 <a href="about.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navAbout">About</a>
-                <a href="mission.html" class="nav-link text-gray-600 hover:text-primary transition active" data-lang-key="navMission">Mission</a>
+                <a href="mission.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navMission">Mission</a>
                 <a href="achievements.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navAchievements">Achievements</a>
                 <a href="initiatives.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navInitiatives">Initiatives</a>
                 <a href="gallery.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navGallery">Gallery</a>
                 <a href="team.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navTeam">Team</a>
                 <a href="impact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navImpact">Impact</a>
                 <a href="partners.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navPartners">Partners</a>
-                <a href="careers.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navCareers">Careers</a>
+                <a href="careers.html" class="nav-link text-gray-600 hover:text-primary transition active" data-lang-key="navCareers">Careers</a>
                 <a href="contact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navContact">Contact</a>
                 <button id="lang-switcher" class="bg-primary/10 text-primary py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
             </div>
@@ -91,32 +91,99 @@
 
 
     <main>
-        <section id="mission" class="py-12 md:py-20 bg-primary/5">
+        <!-- Hero Section -->
+        <section class="relative bg-cover bg-center py-20 md:py-32 text-center" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-dark/70"></div>
+            <div class="relative container mx-auto px-6 reveal">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4" data-lang-key="careersTitle">Join Our Team</h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto" data-lang-key="careersSubtitle">Become a part of a passionate team dedicated to driving meaningful change in our communities.</p>
+            </div>
+        </section>
+
+        <!-- Why Work With Us Section -->
+        <section class="py-12 md:py-20 bg-white">
             <div class="container mx-auto px-6">
-                 <div class="text-center mb-12 reveal">
-                     <h2 class="text-3xl md:text-4xl font-bold mb-3 gradient-text bounce-reveal" data-lang-key="missionTagline">Our Mission</h2>
-                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-                    <div class="reveal p-8 rounded-xl card-glow bg-white shadow-lg">
-                         <div class="bg-primary/10 inline-flex p-4 rounded-full mb-4 transition-transform duration-300 mission-icon-bounce">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2" data-lang-key="missionCard1Title">Citizen Engagement</h3>
-                        <p class="text-gray-600" data-lang-key="missionCard1Text">Empowering communities through inclusive, impactful, and transparent digital civic participation.</p>
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 gradient-text bounce-reveal" data-lang-key="whyWorkTitle">Why Work With Us?</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="reveal p-8 rounded-xl card-glow text-center bg-light">
+                        <h3 class="text-xl font-semibold mb-2" data-lang-key="whyCard1Title">Make a Real Impact</h3>
+                        <p class="text-gray-600" data-lang-key="whyCard1Text">Your work will directly contribute to empowering citizens and improving civic infrastructure.</p>
                     </div>
-                    <div class="reveal p-8 rounded-xl card-glow bg-white shadow-lg" style="transition-delay: 200ms;">
-                        <div class="bg-primary/10 inline-flex p-4 rounded-full mb-4 transition-transform duration-300 mission-icon-bounce" style="animation-delay: 0.5s;">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M15.5 16.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/><path d="M4.1 11.2a14.3 14.3 0 0 0 2.7 4.4l.2.3a1.4 1.4 0 0 0 2 1.1h1.5a1.4 1.4 0 0 0 1.4-1.4V12a1.4 1.4 0 0 0-1.4-1.4h-1.1a1.4 1.4 0 0 1-1.4-1.4V8a1.4 1.4 0 0 0-1.4-1.4H7a1.4 1.4 0 0 0-1.4 1.4v1.3c0 .6.2 1.1.6 1.5.3.3.4.4.5.5.3.3.4.4.5.5a4.2 4.2 0 0 0 2.9 1.4"/><path d="M19.9 11.2a14.3 14.3 0 0 1-2.7 4.4l-.2.3a1.4 1.4 0 0 1-2 1.1h-1.5a1.4 1.4 0 0 1-1.4-1.4V12a1.4 1.4 0 0 1 1.4-1.4h1.1a1.4 1.4 0 0 0 1.4-1.4V8a1.4 1.4 0 0 1 1.4-1.4H17a1.4 1.4 0 0 1 1.4 1.4v1.3c0 .6-.2 1.1-.6 1.5-.3.3-.4.4-.5.5-.3.3-.4.4-.5.5a4.2 4.2 0 0 1-2.9 1.4"/></svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-2" data-lang-key="missionCard2Title">Citizen Awareness</h3>
-                        <p class="text-gray-600" data-lang-key="missionCard2Text">Creating platforms for dialogue and knowledge sharing to drive civic action and promote informed policies.</p>
+                    <div class="reveal p-8 rounded-xl card-glow text-center bg-light" style="transition-delay: 200ms;">
+                        <h3 class="text-xl font-semibold mb-2" data-lang-key="whyCard2Title">Growth and Learning</h3>
+                        <p class="text-gray-600" data-lang-key="whyCard2Text">We invest in our people with opportunities for professional development and continuous learning.</p>
                     </div>
-                    <div class="reveal p-8 rounded-xl card-glow bg-white shadow-lg" style="transition-delay: 400ms;">
-                        <div class="bg-primary/10 inline-flex p-4 rounded-full mb-4 transition-transform duration-300 mission-icon-bounce" style="animation-delay: 1s;">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <div class="reveal p-8 rounded-xl card-glow text-center bg-light" style="transition-delay: 400ms;">
+                        <h3 class="text-xl font-semibold mb-2" data-lang-key="whyCard3Title">Collaborative Culture</h3>
+                        <p class="text-gray-600" data-lang-key="whyCard3Text">Join a supportive and innovative environment where every voice is heard and valued.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Openings Section -->
+        <section id="openings" class="py-12 md:py-20 bg-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3 gradient-text bounce-reveal" data-lang-key="openingsTitle">Current Openings</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Job Opening 1 -->
+                    <div class="reveal bg-white rounded-xl shadow-lg card-glow overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618788372246-79faff0c3742?q=80&w=2070&auto=format&fit=crop" alt="Graphic Designer" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary" data-lang-key="job1Title">Graphic Designer (Intern)</h3>
+                                <p class="text-gray-500 text-sm" data-lang-key="job1Details">Internship | Remote</p>
+                            </div>
+                            <a href="mailto:smekatva@gmail.com" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-hover transition-transform duration-300 transform hover:scale-105" data-lang-key="applyBtn">Apply Now</a>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2" data-lang-key="missionCard3Title">Citizen Power</h3>
-                        <p class="text-gray-600" data-lang-key="missionCard3Text">Building capacity for meaningful civic participation through our Whole-of-Government and Whole-of-Society Approach.</p>
+                    </div>
+                    <!-- Job Opening 2 -->
+                    <div class="reveal bg-white rounded-xl shadow-lg card-glow overflow-hidden" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Project Manager" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary" data-lang-key="job2Title">Project Manager</h3>
+                                <p class="text-gray-500 text-sm" data-lang-key="job2Details">Full-time | Lucknow, Uttar Pradesh</p>
+                            </div>
+                            <a href="mailto:smekatva@gmail.com" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-hover transition-transform duration-300 transform hover:scale-105" data-lang-key="applyBtn">Apply Now</a>
+                        </div>
+                    </div>
+                     <!-- Job Opening 3 -->
+                    <div class="reveal bg-white rounded-xl shadow-lg card-glow overflow-hidden" style="transition-delay: 400ms;">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop" alt="Social Media Manager" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary" data-lang-key="job3Title">Social Media Manager</h3>
+                                <p class="text-gray-500 text-sm" data-lang-key="job3Details">Full-time | Remote</p>
+                            </div>
+                            <a href="mailto:smekatva@gmail.com" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-hover transition-transform duration-300 transform hover:scale-105" data-lang-key="applyBtn">Apply Now</a>
+                        </div>
+                    </div>
+                     <!-- Job Opening 4 -->
+                    <div class="reveal bg-white rounded-xl shadow-lg card-glow overflow-hidden" style="transition-delay: 600ms;">
+                        <img src="https://images.unsplash.com/photo-1553531384-411a247ccd78?q=80&w=1974&auto=format&fit=crop" alt="Content Creator" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary" data-lang-key="job4Title">Content Creator</h3>
+                                <p class="text-gray-500 text-sm" data-lang-key="job4Details">Part-time | Lucknow, Uttar Pradesh</p>
+                            </div>
+                            <a href="mailto:smekatva@gmail.com" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-hover transition-transform duration-300 transform hover:scale-105" data-lang-key="applyBtn">Apply Now</a>
+                        </div>
+                    </div>
+                     <!-- Job Opening 5 -->
+                    <div class="reveal bg-white rounded-xl shadow-lg card-glow overflow-hidden" style="transition-delay: 800ms;">
+                        <img src="https://images.unsplash.com/photo-1532649538693-7904626251b6?q=80&w=2070&auto=format&fit=crop" alt="Volunteers" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col sm:flex-row flex-wrap items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary" data-lang-key="job5Title">Volunteers</h3>
+                                <p class="text-gray-500 text-sm" data-lang-key="job5Details">Flexible | On-site & Remote</p>
+                            </div>
+                            <a href="mailto:smekatva@gmail.com" class="bg-primary text-white py-2 px-6 rounded-full font-semibold hover:bg-primary-hover transition-transform duration-300 transform hover:scale-105" data-lang-key="applyBtn">Apply Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -140,15 +207,15 @@
                         <li><a href="contact.html" class="hover:text-primary transition" data-lang-key="footerLinkContact">Contact</a></li>
                     </ul>
                 </div>
-                <div>
+                 <div>
                     <h4 class="font-semibold text-white mb-4" data-lang-key="footerConnectTitle">Connect</h4>
                     <div class="flex space-x-4">
                         <a href="#" class="hover:text-primary transition" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
                         <a href="#" class="hover:text-primary transition" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9-6.1-1.4-12.1-4.1-16.4-6.4 0 0-2.4 4.5 3.7 7.2-2.1-.1-3.6-.8-3.6-.8 1.1 4.5 5.7 6.1 5.7 6.1-1.4.4-2.8.4-2.8.4 1.5 3.3 5.1 4.4 5.1 4.4-3.3 2-8.1 2.8-8.1 2.8 3.9 1.9 8.5 1.6 12.4-1.5 5.5-4.1 6.9-10.4 6.9-10.4s-1.4.5-2.9.5c.7-1.1 1.7-2.3 2.1-3.7 0 0-.4.3-1.2.5.5-.8 1.1-1.8 1.1-1.8z"></path></svg></a>
-                        <a href="#" class="hover:text-primary transition" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                         <a href="#" class="hover:text-primary transition" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                     </div>
                 </div>
-                <div>
+                 <div>
                     <h4 class="font-semibold text-white mb-4" data-lang-key="footerNewsletterTitle">Newsletter</h4>
                     <form>
                         <div class="flex">
@@ -171,10 +238,27 @@
                 en: {
                     navHome: 'Home',
                     navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navCareers: 'Careers', navContact: 'Contact',
-                    missionTagline: 'Our Mission', 
-                    missionCard1Title: 'Citizen Engagement', missionCard1Text: "Empowering communities through inclusive, impactful, and transparent digital civic participation.",
-                    missionCard2Title: 'Citizen Awareness', missionCard2Text: "Creating platforms for dialogue and knowledge sharing to drive civic action and promote informed policies.",
-                    missionCard3Title: 'Citizen Power', missionCard3Text: "Building capacity for meaningful civic participation through our Whole-of-Government and Whole-of-Society Approach.",
+                    careersTitle: 'Join Our Team',
+                    careersSubtitle: 'Become a part of a passionate team dedicated to driving meaningful change in our communities.',
+                    whyWorkTitle: 'Why Work With Us?',
+                    whyCard1Title: 'Make a Real Impact',
+                    whyCard1Text: 'Your work will directly contribute to empowering citizens and improving civic infrastructure.',
+                    whyCard2Title: 'Growth and Learning',
+                    whyCard2Text: 'We invest in our people with opportunities for professional development and continuous learning.',
+                    whyCard3Title: 'Collaborative Culture',
+                    whyCard3Text: 'Join a supportive and innovative environment where every voice is heard and valued.',
+                    openingsTitle: 'Current Openings',
+                    job1Title: 'Graphic Designer (Intern)',
+                    job1Details: 'Internship | Remote',
+                    job2Title: 'Project Manager',
+                    job2Details: 'Full-time | Lucknow, Uttar Pradesh',
+                    job3Title: 'Social Media Manager',
+                    job3Details: 'Full-time | Remote',
+                    job4Title: 'Content Creator',
+                    job4Details: 'Part-time | Lucknow, Uttar Pradesh',
+                    job5Title: 'Volunteers',
+                    job5Details: 'Flexible | On-site & Remote',
+                    applyBtn: 'Apply Now',
                     footerBrandDesc: 'Driving change through digital engagement.',
                     footerQuickLinksTitle: 'Quick Links', footerLinkAbout: 'About Us', footerLinkInitiatives: 'Initiatives', footerLinkTeam: 'Team', footerLinkContact: 'Contact',
                     footerConnectTitle: 'Connect',
@@ -184,10 +268,27 @@
                 hi: {
                     navHome: 'होम',
                     navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navCareers: 'करियर', navContact: 'संपर्क',
-                    missionTagline: 'हमारा लक्ष्य', 
-                    missionCard1Title: 'नागरिक जुड़ाव', missionCard1Text: 'समावेशी, प्रभावशाली और पारदर्शी डिजिटल नागरिक भागीदारी के माध्यम से समुदायों को सशक्त बनाना।',
-                    missionCard2Title: 'नागरिक जागरूकता', missionCard2Text: 'नागरिक कार्रवाई को बढ़ावा देने और सूचित नीतियों को बढ़ावा देने के लिए संवाद और ज्ञान साझा करने के लिए मंच बनाना।',
-                    missionCard3Title: 'नागरिक शक्ति', missionCard3Text: 'हमारी संपूर्ण-सरकार और संपूर्ण-समाज दृष्टिकोण के माध्यम से सार्थक नागरिक भागीदारी के लिए क्षमता का निर्माण।',
+                    careersTitle: 'हमारी टीम में शामिल हों',
+                    careersSubtitle: 'हमारे समुदायों में सार्थक बदलाव लाने के लिए समर्पित एक उत्साही टीम का हिस्सा बनें।',
+                    whyWorkTitle: 'हमारे साथ काम क्यों करें?',
+                    whyCard1Title: 'वास्तविक प्रभाव डालें',
+                    whyCard1Text: 'आपका काम सीधे तौर पर नागरिकों को सशक्त बनाने और नागरिक बुनियादी ढांचे में सुधार करने में योगदान देगा।',
+                    whyCard2Title: 'विकास और सीखना',
+                    whyCard2Text: 'हम पेशेवर विकास और निरंतर सीखने के अवसरों के साथ अपने लोगों में निवेश करते हैं।',
+                    whyCard3Title: 'सहयोगी संस्कृति',
+                    whyCard3Text: 'एक सहायक और अभिनव वातावरण में शामिल हों जहाँ हर आवाज़ सुनी और मूल्यवान हो।',
+                    openingsTitle: 'वर्तमान रिक्तियों',
+                    job1Title: 'ग्राफिक डिजाइनर (इंटर्न)',
+                    job1Details: 'इंटर्नशिप | रिमोट',
+                    job2Title: 'परियोजना प्रबंधक',
+                    job2Details: 'पूर्णकालिक | लखनऊ, उत्तर प्रदेश',
+                    job3Title: 'सोशल मीडिया मैनेजर',
+                    job3Details: 'पूर्णकालिक | रिमोट',
+                    job4Title: 'सामग्री निर्माता',
+                    job4Details: 'अंशकालिक | लखनऊ, उत्तर प्रदेश',
+                    job5Title: 'स्वयंसेवक',
+                    job5Details: 'लचीला | ऑन-साइट और रिमोट',
+                    applyBtn: 'अभी आवेदन करें',
                     footerBrandDesc: 'डिजिटल जुड़ाव के माध्यम से बदलाव लाना।',
                     footerQuickLinksTitle: 'त्वरित सम्पक', footerLinkAbout: 'हमारे बारे में', footerLinkInitiatives: 'पहल', footerLinkTeam: 'टीम', footerLinkContact: 'संपर्क',
                     footerConnectTitle: 'जुड़ें',
@@ -256,6 +357,16 @@
                     card.style.transition = 'transform 0.4s ease-out';
                     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
                 });
+            });
+
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
             
             setLanguage(currentLanguage);

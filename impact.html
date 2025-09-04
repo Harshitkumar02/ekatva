@@ -16,7 +16,7 @@
     <!-- Shared Styles -->
     <style>
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        main > section { transition: transform 0.5s ease-out; }
+        main { padding-top: 100px; } /* Add padding to push content below fixed nav */
         #preloader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: #ffffff; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s ease-out; }
         .spinner { width: 48px; height: 48px; border: 5px solid #d1d5db; border-bottom-color: #0d9488; border-radius: 50%; display: inline-block; box-sizing: border-box; animation: rotation 1s linear infinite; }
         @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -26,10 +26,12 @@
         .bounce-reveal { animation-fill-mode: forwards; animation-delay: 0.2s; }
         .reveal.visible .bounce-reveal { animation-name: bounce-in; animation-duration: 0.8s; }
         .gradient-text { background: linear-gradient(to right, #0d9488, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        #navbar { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
-        #navbar nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
-        #navbar .gradient-text { font-size: 1.25rem; }
+        #navbar nav { transition: padding 0.3s ease-in-out; }
         #navbar .nav-link.active { color: #0d9488; font-weight: 600; }
+        #navbar .gradient-text { transition: font-size 0.3s ease-in-out; }
+        #navbar.scrolled { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
+        #navbar.scrolled nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        #navbar.scrolled .gradient-text { font-size: 1.25rem; }
         .card-glow { transition: all 0.3s ease-out; }
         .card-glow:hover { box-shadow: 0 15px 30px rgba(13, 148, 136, 0.3), 0 0 20px rgba(6, 182, 212, 0.2); }
         .card-glow h3 { min-height: 3.5rem; word-break: break-word; }
@@ -58,8 +60,8 @@
     <div id="preloader"><div class="spinner"></div></div>
 
     <!-- Header -->
-    <header id="navbar" class="navbar sticky top-0 left-0 right-0 z-40 transition-all duration-300">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header id="navbar" class="navbar fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold gradient-text">Ekatva Welfare Foundation</a>
             <div class="hidden md:flex items-center space-x-6">
                  <a href="index.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navHome">Home</a>
@@ -84,21 +86,34 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu-backdrop" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-full max-w-xs bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
-        <div class="p-8 pt-24 space-y-4">
-            <a href="index.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navHome">Home</a>
-            <a href="about.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAbout">About</a>
-            <a href="mission.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navMission">Mission</a>
-            <a href="achievements.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navAchievements">Achievements</a>
-            <a href="initiatives.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navInitiatives">Initiatives</a>
-            <a href="gallery.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navGallery">Gallery</a>
-            <a href="team.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navTeam">Team</a>
-            <a href="impact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navImpact">Impact</a>
-            <a href="partners.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navPartners">Partners</a>
-            <a href="careers.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navCareers">Careers</a>
-            <a href="contact.html" class="block py-2 text-lg text-gray-700 hover:text-primary" data-lang-key="navContact">Contact</a>
-            <div class="pt-4">
-                <button id="lang-switcher-mobile" class="w-full bg-primary/10 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden shadow-2xl">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Header -->
+            <div class="p-5 border-b flex justify-between items-center">
+                <a class="text-xl font-bold gradient-text" href="index.html">Ekatva Welfare Foundation</a>
+            </div>
+            <!-- Mobile Links -->
+            <div class="flex-grow p-4 space-y-2 overflow-y-auto">
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navHome" href="index.html">Home</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navAbout" href="about.html">About</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navMission" href="mission.html">Mission</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navAchievements" href="achievements.html">Achievements</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navInitiatives" href="initiatives.html">Initiatives</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navGallery" href="gallery.html">Gallery</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navTeam" href="team.html">Team</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors active" data-lang-key="navImpact" href="impact.html">Impact</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navPartners" href="partners.html">Partners</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navCareers" href="careers.html">Careers</a>
+                <a class="block px-4 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors" data-lang-key="navContact" href="contact.html">Contact</a>
+            </div>
+            <!-- Mobile Footer -->
+            <div class="p-6 border-t">
+                <button class="w-full bg-primary/10 text-primary py-3 px-4 rounded-lg font-semibold hover:bg-primary/20 transition-colors mb-4" id="lang-switcher-mobile">हिन्दी</button>
+                <div class="flex justify-center space-x-6 text-gray-500">
+                    <a aria-label="Facebook" class="hover:text-primary transition" href="#"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a aria-label="Twitter" class="hover:text-primary transition" href="#"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9-6.1-1.4-12.1-4.1-16.4-6.4 0 0-2.4 4.5 3.7 7.2-2.1-.1-3.6-.8-3.6-.8 1.1 4.5 5.7 6.1 5.7 6.1-1.4.4-2.8.4-2.8.4 1.5 3.3 5.1 4.4 5.1 4.4-3.3 2-8.1 2.8-8.1 2.8 3.9 1.9 8.5 1.6 12.4-1.5 5.5-4.1 6.9-10.4 6.9-10.4s-1.4.5-2.9.5c.7-1.1 1.7-2.3 2.1-3.7 0 0-.4.3-1.2.5.5-.8 1.1-1.8 1.1-1.8z"></path></svg></a>
+                    <a aria-label="Instagram" class="hover:text-primary transition" href="#"><svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+                </div>
             </div>
         </div>
     </div>
@@ -266,7 +281,7 @@
             const translations = {
                 en: {
                     navHome: 'Home',
-                    navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navContact: 'Contact',
+                    navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navCareers: 'Careers', navContact: 'Contact',
                     impactTitle: 'Our Impact', 
                     impactSubtitle: 'Creating measurable change where it matters most.',
                     impactCard1Title: 'Campaigns Launched', 
@@ -284,7 +299,7 @@
                 },
                 hi: {
                     navHome: 'होम',
-                    navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navContact: 'संपर्क',
+                    navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navCareers: 'करियर', navContact: 'संपर्क',
                     impactTitle: 'हमारा प्रभाव', 
                     impactSubtitle: 'जहाँ सबसे ज्यादा मायने रखता है, वहाँ औसत दर्जे का बदलाव लाना।',
                     impactCard1Title: 'शुरू किए गए अभियान', 
@@ -395,10 +410,19 @@
                     }
                 });
             }
+
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
             
             setLanguage(currentLanguage);
         });
     </script>
 </body>
 </html>
-
