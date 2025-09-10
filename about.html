@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Ekatva Welfare Foundation</title>
     <meta name="description" content="Learn about the mission and vision of Ekatva Welfare Foundation.">
+    <meta name="keywords" content="about Ekatva, mission, vision, team, civic engagement, social impact">
+    <meta name="author" content="Ekatva Welfare Foundation">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About Us - Ekatva Welfare Foundation">
+    <meta property="og:description" content="Learn about the mission and vision of Ekatva Welfare Foundation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ekatva.org/about.html">
+    <link rel="canonical" href="https://ekatva.org/about.html">
+    <meta name="theme-color" content="#0d9488">
     
     <!-- Common head content -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230d9488'/%3E%3Ctext x='50' y='55' font-size='60' fill='white' text-anchor='middle' font-family='Inter, sans-serif' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
@@ -25,9 +34,54 @@
         @keyframes bounce-in { 0% { opacity: 0; transform: scale(0.3) translateY(40px); } 50% { opacity: 1; transform: scale(1.05) translateY(0); } 70% { transform: scale(0.9) translateY(-10px); } 100% { transform: scale(1) translateY(0); } }
         .bounce-reveal { animation-fill-mode: forwards; animation-delay: 0.2s; }
         .reveal.visible .bounce-reveal { animation-name: bounce-in; animation-duration: 0.8s; }
-        .gradient-text { background: linear-gradient(to right, #0d9488, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text { 
+            background: linear-gradient(to right, #0d9488, #06b6d4); 
+            -webkit-background-clip: text; 
+            background-clip: text;
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        /* Hindi Text Rendering Fix */
+        .gradient-text[data-lang-key] {
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1;
+            line-height: 1.4;
+        }
+        
+        /* Ensure proper rendering for Hindi diacritics */
+        [lang="hi"] .gradient-text,
+        .gradient-text:lang(hi) {
+            -webkit-text-fill-color: #0d9488; /* Fallback color for Hindi */
+            background: linear-gradient(to right, #0d9488, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1;
+            line-height: 1.5;
+        }
+        
+        /* Alternative gradient text for Hindi */
+        .gradient-text-hindi {
+            color: #0d9488;
+            background: linear-gradient(to right, #0d9488, #06b6d4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1;
+            line-height: 1.5;
+        }
         #navbar nav { transition: padding 0.3s ease-in-out; }
         #navbar .nav-link.active { color: #0d9488; font-weight: 600; }
+        /* Mobile Navigation Active State */
+        #mobile-menu a.active {
+            background-color: #0d9488;
+            color: white;
+            font-weight: 600;
+        }
+        #mobile-menu a.active:hover {
+            background-color: #0f766e;
+        }
         #navbar .gradient-text { transition: font-size 0.3s ease-in-out; }
         #navbar.scrolled { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); }
         #navbar.scrolled nav { padding-top: 0.75rem; padding-bottom: 0.75rem; }
@@ -49,16 +103,37 @@
             <a href="index.html" class="text-2xl font-bold gradient-text">Ekatva Welfare Foundation</a>
             <div class="hidden md:flex items-center space-x-6">
                  <a href="index.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navHome">Home</a>
-                <a href="about.html" class="nav-link text-gray-600 hover:text-primary transition active" data-lang-key="navAbout">About</a>
-                <a href="mission.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navMission">Mission</a>
-                <a href="achievements.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navAchievements">Achievements</a>
-                <a href="initiatives.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navInitiatives">Initiatives</a>
-                <a href="gallery.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navGallery">Gallery</a>
-                <a href="team.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navTeam">Team</a>
-                <a href="impact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navImpact">Impact</a>
-                <a href="partners.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navPartners">Partners</a>
-                <a href="careers.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navCareers">Careers</a>
-                <a href="contact.html" class="nav-link text-gray-600 hover:text-primary transition" data-lang-key="navContact">Contact</a>
+                 <div class="relative group">
+                    <button class="nav-link text-gray-600 hover:text-primary transition flex items-center"><span data-lang-key="navAboutGroup">About</span>
+                        <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-lg hidden group-hover:block z-50">
+                        <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navAbout">About</a>
+                        <a href="mission.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navMission">Mission</a>
+                        <a href="team.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navTeam">Team</a>
+                        <a href="partners.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navPartners">Partners</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="nav-link text-gray-600 hover:text-primary transition flex items-center"><span data-lang-key="navProgramsGroup">Programs</span>
+                        <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg hidden group-hover:block z-50">
+                        <a href="initiatives.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navInitiatives">Initiatives</a>
+                        <a href="achievements.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navAchievements">Achievements</a>
+                        <a href="impact.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navImpact">Impact</a>
+                        <a href="gallery.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navGallery">Gallery</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="nav-link text-gray-600 hover:text-primary transition flex items-center"><span data-lang-key="navMoreGroup">More</span>
+                        <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg hidden group-hover:block z-50">
+                        <a href="careers.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navCareers">Careers</a>
+                        <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-primary/10" data-lang-key="navContact">Contact</a>
+                    </div>
+                </div>
                 <button id="lang-switcher" class="bg-primary/10 text-primary py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
             </div>
             <button id="mobile-menu-btn" class="md:hidden text-dark z-50">
@@ -111,7 +186,7 @@
                  </div>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="reveal">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto=format&fit=crop" alt="Ekatva Foundation Team Discussion" class="rounded-xl shadow-2xl w-full card-glow">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop" alt="Ekatva Foundation Team Discussion" class="rounded-xl shadow-2xl w-full card-glow" width="800" height="600">
                     </div>
                     <div class="reveal" style="transition-delay: 200ms;">
                         <div data-lang-key="aboutSubtitle" class="text-gray-700 space-y-4 text-base md:text-lg">
@@ -124,42 +199,45 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-gray-400 py-12">
+    <footer class="bg-dark text-gray-300 py-8">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Ekatva</h3>
+                    <h3 class="text-2xl font-bold text-white mb-3">Ekatva Welfare Foundation</h3>
                     <p class="text-sm" data-lang-key="footerBrandDesc">Driving change through digital engagement.</p>
+                    <p class="text-sm mt-4">C4/1129, Gomti Nagar, Lucknow - 226010</p>
+                    <p class="text-sm">+91-7317073150</p>
+                    <p class="text-sm">smekatva@gmail.com</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerQuickLinksTitle">Quick Links</h4>
-                    <ul class="space-y-2">
+                    <h4 class="font-semibold text-white mb-3" data-lang-key="footerQuickLinksTitle">Quick Links</h4>
+                    <ul class="grid grid-cols-2 gap-y-1">
                         <li><a href="about.html" class="hover:text-primary transition" data-lang-key="footerLinkAbout">About Us</a></li>
+                        <li><a href="mission.html" class="hover:text-primary transition" data-lang-key="navMission">Mission</a></li>
+                        <li><a href="achievements.html" class="hover:text-primary transition" data-lang-key="navAchievements">Achievements</a></li>
                         <li><a href="initiatives.html" class="hover:text-primary transition" data-lang-key="footerLinkInitiatives">Initiatives</a></li>
+                        <li><a href="impact.html" class="hover:text-primary transition" data-lang-key="navImpact">Impact</a></li>
+                        <li><a href="partners.html" class="hover:text-primary transition" data-lang-key="navPartners">Partners</a></li>
                         <li><a href="team.html" class="hover:text-primary transition" data-lang-key="footerLinkTeam">Team</a></li>
+                        <li><a href="careers.html" class="hover:text-primary transition" data-lang-key="navCareers">Careers</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition" data-lang-key="footerLinkContact">Contact</a></li>
                     </ul>
                 </div>
-                 <div>
-                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerConnectTitle">Connect</h4>
+                <div>
+                    <h4 class="font-semibold text-white mb-3" data-lang-key="footerConnectTitle">Connect</h4>
                     <div class="flex space-x-4">
                         <a href="#" class="hover:text-primary transition" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                        <a href="#" class="hover:text-primary transition" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3.3 4.9-6.1-1.4-12.1-4.1-16.4-6.4 0 0-2.4 4.5 3.7 7.2-2.1-.1-3.6-.8-3.6-.8 1.1 4.5 5.7 6.1 5.7 6.1-1.4.4-2.8.4-2.8.4 1.5 3.3 5.1 4.4 5.1 4.4-3.3 2-8.1 2.8-8.1 2.8 3.9 1.9 8.5 1.6 12.4-1.5 5.5-4.1 6.9-10.4 6.9-10.4s-1.4.5-2.9.5c.7-1.1 1.7-2.3 2.1-3.7 0 0-.4.3-1.2.5.5-.8 1.1-1.8 1.1-1.8z"></path></svg></a>
-                         <a href="#" class="hover:text-primary transition" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" class="hover:text-primary transition" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="#" class="hover:text-primary transition" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>
                     </div>
                 </div>
-                 <div>
-                    <h4 class="font-semibold text-white mb-4" data-lang-key="footerNewsletterTitle">Newsletter</h4>
-                    <form>
-                        <div class="flex">
-                            <input type="email" placeholder="Your email" data-lang-key="footerNewsletterPlaceholder" class="w-full bg-gray-800 text-white rounded-l-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required>
-                            <button type="submit" class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary-hover">&rarr;</button>
-                        </div>
-                    </form>
-                </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p data-lang-key="footerCopyright">&copy; 2024 Ekatva Welfare Foundation. All rights reserved.</p>
+            <div class="border-t border-gray-800 pt-6 text-center text-sm">
+                <p>&copy; 2024 Ekatva Welfare Foundation. All rights reserved. 
+                    <a href="#" class="hover:text-primary transition">Privacy Policy</a> • 
+                    <a href="#" class="hover:text-primary transition">Terms</a> • 
+                    <a href="#" class="hover:text-primary transition">Sitemap</a>
+                </p>
             </div>
         </div>
     </footer>
@@ -170,6 +248,7 @@
             const translations = {
                 en: {
                     navHome: 'Home',
+                    navAboutGroup: 'About', navProgramsGroup: 'Programs', navMoreGroup: 'More',
                     navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navCareers: 'Careers', navContact: 'Contact',
                     aboutTitle: 'Who We Are',
                     aboutSubtitle: `<p class="text-lg text-gray-600 max-w-3xl mx-auto mb-4">At Ekatva, we believe in the power of voices united. Our mission is to amplify these voices, spark awareness, and inspire action. We're not just a foundation; we're a movement for a more engaged, inclusive, and empowered society.</p><p class="text-lg text-gray-600 max-w-3xl mx-auto">When our founders Ruchita and Ayush observed the gap in public engagement processes, they knew something had to change. Traditional methods often overlooked the voices of everyday people. And so, Ekatva was born—a foundation built on the belief that public agencies make better decisions when they truly understand the people they serve.</p>`,
@@ -181,6 +260,7 @@
                 },
                 hi: {
                     navHome: 'होम',
+                    navAboutGroup: 'हमारे बारे में', navProgramsGroup: 'कार्यक्रम', navMoreGroup: 'और',
                     navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navCareers: 'करियर', navContact: 'संपर्क',
                     aboutTitle: 'हम कौन हैं',
                     aboutSubtitle: `<p class="text-lg text-gray-600 max-w-3xl mx-auto mb-4">एकत्व में, हम एकजुट आवाज़ों की शक्ति में विश्वास करते हैं। हमारा मिशन इन आवाज़ों को बढ़ाना, जागरूकता जगाना और कार्रवाई को प्रेरित करना है। हम सिर्फ एक फाउंडेशन नहीं हैं; हम एक अधिक व्यस्त, समावेशी और सशक्त समाज के लिए एक आंदोलन हैं।</p><p class="text-lg text-gray-600 max-w-3xl mx-auto">जब हमारे संस्थापकों रुचिता और आयुष ने सार्वजनिक जुड़ाव प्रक्रियाओं में अंतर देखा, तो वे जानते थे कि कुछ बदलना होगा। पारंपरिक तरीके अक्सर आम लोगों की आवाज़ों को नज़रअंदाज़ कर देते थे। और इसलिए, एकत्व का जन्म हुआ - इस विश्वास पर बनी एक नींव कि सार्वजनिक एजेंसियां बेहतर निर्णय लेती हैं जब वे वास्तव में उन लोगों को समझती हैं जिनकी वे सेवा करती हैं।</p>`,
@@ -199,11 +279,25 @@
             const setLanguage = (lang) => {
                 currentLanguage = lang;
                 localStorage.setItem('ekatvaLang', lang);
+                
+                // Set language attribute on body for CSS targeting
+                document.body.setAttribute('lang', lang);
+                
                 translatableElements.forEach(el => {
                     const key = el.dataset.langKey;
                     if (translations[lang] && translations[lang][key]) {
-                        if (el.tagName === 'INPUT' && el.type === 'email') { el.placeholder = translations[lang][key]; } 
-                        else { el.innerHTML = translations[lang][key]; }
+                        if (el.tagName === 'INPUT' && el.type === 'email') { 
+                            el.placeholder = translations[lang][key]; 
+                        } else { 
+                            el.innerHTML = translations[lang][key];
+                            
+                            // Add Hindi-specific class for gradient text elements
+                            if (lang === 'hi' && el.classList.contains('gradient-text')) {
+                                el.classList.add('gradient-text-hindi');
+                            } else if (lang === 'en' && el.classList.contains('gradient-text-hindi')) {
+                                el.classList.remove('gradient-text-hindi');
+                            }
+                        }
                     }
                 });
                 langSwitchers.forEach(switcher => { if(switcher) switcher.textContent = lang === 'en' ? 'हिन्दी' : 'English'; });
@@ -236,6 +330,14 @@
             if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', toggleMenu);
             document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => { if(!mobileMenu.classList.contains('translate-x-full')) { toggleMenu(); } }); });
 
+            // Highlight active item in mobile menu
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPath) link.classList.add('active');
+                else link.classList.remove('active');
+            });
+
             const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
             
@@ -264,7 +366,41 @@
                 }
             });
             
+            // Navbar dropdowns: open on click, close on outside/Esc, rotate caret
+            const dropdownParents = document.querySelectorAll('#navbar .relative.group');
+            const closeAllDropdowns = () => {
+                dropdownParents.forEach(parent => {
+                    const menu = parent.querySelector('div.absolute');
+                    const caret = parent.querySelector('button svg');
+                    if (menu) menu.classList.add('hidden');
+                    if (caret) caret.style.transform = '';
+                });
+            };
+            dropdownParents.forEach(parent => {
+                parent.classList.remove('group');
+                const menu = parent.querySelector('div.absolute');
+                if (menu) menu.classList.add('hidden');
+                const button = parent.querySelector('button');
+                if (button) {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const isHidden = menu && menu.classList.contains('hidden');
+                        closeAllDropdowns();
+                        if (menu && isHidden) {
+                            menu.classList.remove('hidden');
+                            const caret = button.querySelector('svg');
+                            if (caret) caret.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                }
+            });
+            document.addEventListener('click', closeAllDropdowns);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllDropdowns(); });
+
             setLanguage(currentLanguage);
+            
+            // Set initial language attribute on body
+            document.body.setAttribute('lang', currentLanguage);
         });
     </script>
 </body>
