@@ -16,13 +16,16 @@
     <meta name="theme-color" content="#0d9488">
     
     <!-- Common head content -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230d9488'/%3E%3Ctext x='50' y='55' font-size='60' fill='white' text-anchor='middle' font-family='Inter, sans-serif' font-weight='bold'%3EE%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/x-icon" href="images/ewf.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/ewf.ico">
+    <link rel="apple-touch-icon" href="images/ewf.ico">
     <!-- Critical CSS and Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     
     <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="images/banner2.jpg">
     <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" crossorigin>
     
     <!-- Tailwind CSS -->
@@ -219,6 +222,15 @@
 
 
     <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[60vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('images/banner2.jpg');">
+            <div class="absolute inset-0 bg-dark/60 z-10"></div>
+            <div class="relative z-20 px-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 reveal" data-lang-key="contactHeroTitle">Get In <span class="text-primary">Touch</span></h1>
+                <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 200ms;" data-lang-key="contactHeroSubtitle">Ready to make a difference? Connect with us and be part of our mission to amplify voices and inspire action across communities.</p>
+            </div>
+        </section>
+
         <section id="contact" class="py-12 md:py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 reveal">
@@ -248,21 +260,6 @@
                     </div>
                 </div>
 
-                <!-- Map Section (responsive) -->
-                <div class="mt-16 reveal">
-                    <div class="bg-gradient-to-r from-primary to-secondary p-[3px] rounded-2xl md:w-1/2 w-full mx-auto shadow-xl">
-                        <div class="relative w-full overflow-hidden rounded-xl bg-white map-aspect" style="padding-bottom: 56.25%;">
-                            <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.813636578052!2d80.9996198751016!3d26.84586996248364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3c4b3111111%3A0x833f3e691456b341!2sPanacea%20Hospital%20-%20Best%20Hospital%20in%20Lucknow%2C%20Multi%20Speciality%20Hospital%2C%20Gomti%20Nagar%2C%20Lucknow!5e0!3m2!1sen!2sin!4v1693829285489!5m2!1sen!2sin"
-                                class="absolute inset-0 h-full w-full filter grayscale contrast-110 hover:grayscale-0 transition"
-                                style="border:0;"
-                                allowfullscreen=""
-                                loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -277,6 +274,26 @@
                     <p class="text-sm mt-4">C4/1129, Gomti Nagar, Lucknow - 226010</p>
                     <p class="text-sm">+91-7317073150</p>
                     <p class="text-sm">smekatva@gmail.com</p>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition" aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition" aria-label="YouTube">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path>
+                                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="font-semibold text-white mb-3" data-lang-key="footerQuickLinksTitle">Quick Links</h4>
@@ -292,12 +309,19 @@
                         <li><a href="contact.html" class="hover:text-primary transition" data-lang-key="footerLinkContact">Contact</a></li>
                     </ul>
                 </div>
-                 <div>
-                    <h4 class="font-semibold text-white mb-3" data-lang-key="footerConnectTitle">Connect</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="hover:text-primary transition" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                        <a href="#" class="hover:text-primary transition" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
-                         <a href="#" class="hover:text-primary transition" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg></a>
+                <div>
+                    <h4 class="font-semibold text-white mb-3" data-lang-key="footerMapTitle">Find Us</h4>
+                    <div class="bg-gradient-to-r from-primary to-secondary p-[2px] rounded-lg max-w-sm mx-auto">
+                        <div class="relative w-full overflow-hidden rounded-lg bg-white" style="padding-bottom: 56.25%;">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.813636578052!2d80.9996198751016!3d26.84586996248364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3c4b3111111%3A0x833f3e691456b341!2sPanacea%20Hospital%20-%20Best%20Hospital%20in%20Lucknow%2C%20Multi%20Speciality%20Hospital%2C%20Gomti%20Nagar%2C%20Lucknow!5e0!3m2!1sen!2sin!4v1693829285489!5m2!1sen!2sin"
+                                class="absolute inset-0 h-full w-full filter grayscale contrast-110 hover:grayscale-0 transition"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -319,12 +343,14 @@
                     navHome: 'Home',
                     navAboutGroup: 'About', navProgramsGroup: 'Programs', navMoreGroup: 'More',
                     navAbout: 'About', navMission: 'Mission', navAchievements: 'Achievements', navInitiatives: 'Initiatives', navGallery: 'Gallery', navTeam: 'Team', navImpact: 'Impact', navPartners: 'Partners', navCareers: 'Careers', navContact: 'Contact',
+                    contactHeroTitle: 'Get In <span class="text-primary">Touch</span>', contactHeroSubtitle: 'Ready to make a difference? Connect with us and be part of our mission to amplify voices and inspire action across communities.',
                     contactTitle: 'Get In Touch', contactSubtitle: "Have questions or want to collaborate? We'd love to hear from you.",
                     contactInfoTitle: 'Contact Information', contactInfoDesc: 'Fill up the form and our team will get back to you within 24 hours. You can also reach us through the details below.',
                     officeTitle: 'Our Office', officeAddress: 'C4/1129, Gomti Nagar, Lucknow - 226010 (Near Panacea Hospital)',
                     phoneTitle: 'Phone Number', phoneNumber: '+91-7317073150',
                     emailTitle: 'Email Address', emailAddress: 'smekatva@gmail.com',
                     contactFormName: 'Your Name', contactFormEmail: 'Your Email', contactFormMessage: 'Message', contactFormBtn: 'Send Message',
+                    footerMapTitle: 'Find Us',
                     footerBrandDesc: 'Driving change through digital engagement.',
                     footerQuickLinksTitle: 'Quick Links', footerLinkAbout: 'About Us', footerLinkInitiatives: 'Initiatives', footerLinkTeam: 'Team', footerLinkContact: 'Contact',
                     footerConnectTitle: 'Connect',
@@ -335,12 +361,14 @@
                     navHome: 'होम',
                     navAboutGroup: 'हमारे बारे में', navProgramsGroup: 'कार्यक्रम', navMoreGroup: 'और',
                     navAbout: 'हमारे बारे में', navMission: 'लक्ष्य', navAchievements: 'उपलब्धियां', navInitiatives: 'पहल', navGallery: 'गेलरी', navTeam: 'टीम', navImpact: 'प्रभाव', navPartners: 'साझेदार', navCareers: 'करियर', navContact: 'संपर्क',
+                    contactHeroTitle: 'संपर्क <span class="text-primary">करें</span>', contactHeroSubtitle: 'बदलाव लाने के लिए तैयार हैं? हमसे जुड़ें और समुदायों में आवाज़ें बुलंद करने और कार्रवाई को प्रेरित करने के हमारे मिशन का हिस्सा बनें।',
                     contactTitle: 'संपर्क करें', contactSubtitle: 'प्रश्न हैं या सहयोग करना चाहते हैं? हमें आपसे सुनना अच्छा लगेगा।',
                     contactInfoTitle: 'संपर्क जानकारी', contactInfoDesc: 'फॉर्म भरें और हमारी टीम 24 घंटे के भीतर आपसे संपर्क करेगी। आप नीचे दिए गए विवरण के माध्यम से भी हम तक पहुंच सकते हैं।',
                     officeTitle: 'हमारा कार्यालय', officeAddress: 'C4/1129, गोमती नगर, लखनऊ - 226010 (पैनेसिया अस्पताल के पास)',
                     phoneTitle: 'फ़ोन नंबर', phoneNumber: '+91-7317073150',
                     emailTitle: 'ईमेल पता', emailAddress: 'smekatva@gmail.com',
                     contactFormName: 'आपका नाम', contactFormEmail: 'आपका ईमेल', contactFormMessage: 'संदेश', contactFormBtn: 'संदेश भेजें',
+                    footerMapTitle: 'हमें खोजें',
                     footerBrandDesc: 'डिजिटल जुड़ाव के माध्यम से बदलाव लाना।',
                     footerQuickLinksTitle: 'त्वरित सम्पक', footerLinkAbout: 'हमारे बारे में', footerLinkInitiatives: 'पहल', footerLinkTeam: 'टीम', footerLinkContact: 'संपर्क',
                     footerConnectTitle: 'जुड़ें',
