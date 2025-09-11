@@ -14,6 +14,9 @@
     <meta property="og:url" content="https://ekatva.org/initiatives.html">
     <link rel="canonical" href="https://ekatva.org/initiatives.html">
     <meta name="theme-color" content="#0d9488">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Common head content -->
     <link rel="icon" type="image/x-icon" href="images/ewf.ico">
@@ -97,6 +100,8 @@
 </head>
 <body class="bg-light text-dark/80">
 
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded">Skip to content</a>
+
     <div id="preloader"><div class="spinner"></div></div>
 
     <!-- Header -->
@@ -138,7 +143,7 @@
                 </div>
                 <button id="lang-switcher" class="bg-primary/10 text-primary py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary/20 transition-colors">हिन्दी</button>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-dark z-50">
+            <button id="mobile-menu-btn" class="md:hidden text-dark z-50" aria-controls="mobile-menu" aria-expanded="false">
                 <svg id="menu-open-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 <svg id="menu-close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -180,7 +185,7 @@
     </div>
 
 
-    <main>
+    <main id="main">
         <section id="initiatives" class="py-12 md:py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 reveal">
@@ -345,6 +350,8 @@
                 if (menuCloseIcon) menuCloseIcon.classList.toggle('hidden');
                 body.classList.toggle('overflow-hidden');
                 mobileMenuBackdrop.classList.toggle('hidden');
+                const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
             };
             if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
             if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', toggleMenu);

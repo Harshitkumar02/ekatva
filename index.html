@@ -19,6 +19,9 @@
     <meta name="twitter:image" content="https://ekatva.org/images/banner1.jpg">
     <link rel="canonical" href="https://ekatva.org/">
     <meta name="theme-color" content="#0d9488">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -284,12 +287,7 @@
         }
         
         /* Optimize for mobile */
-        @media (max-width: 768px) {
-            .card-glow:hover {
-                transform: none;
-                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            }
-        }
+        /* Keep glow/tilt active on mobile */
     </style>
 
     <script>
@@ -312,6 +310,8 @@
     </script>
 </head>
 <body class="bg-light text-dark/80">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded">Skip to content</a>
 
     <div id="preloader"><div class="spinner"></div></div>
 
@@ -353,7 +353,7 @@
                 </div>
                 <button id="lang-switcher" class="bg-white/20 text-white py-2 px-4 rounded-lg text-sm font-semibold hover:bg-white/30 transition-colors">हिन्दी</button>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white z-50">
+            <button id="mobile-menu-btn" class="md:hidden text-white z-50" aria-controls="mobile-menu" aria-expanded="false">
                 <svg id="menu-open-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 <svg id="menu-close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -392,7 +392,7 @@
     </div>
 
 
-    <main>
+    <main id="main">
         <section class="relative min-h-screen flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('images/banner1.jpg');">
             <div class="absolute inset-0 bg-dark/60 z-10"></div>
             <canvas id="hero-canvas"></canvas>
@@ -516,6 +516,11 @@
                         <img loading="lazy" src="images/lnn.png" alt="Lucknow Nagar Nigam Logo" class="h-20 mb-4 object-contain">
                          <h3 class="font-semibold text-gray-700" data-lang-key="partner5Name">Lucknow Nagar Nigam</h3>
                          <p class="text-sm text-gray-500 mt-2" data-lang-key="partner5Desc">Driving local urban development and sanitation projects.</p>
+                    </div>
+                     <div class="reveal bg-white p-6 rounded-xl flex flex-col items-center justify-center text-center h-full card-glow" style="transition-delay: 500ms;">
+                        <img loading="lazy" src="images/ann.png" alt="Agra Nagar Nigam Logo" class="h-20 mb-4 object-contain">
+                         <h3 class="font-semibold text-gray-700" data-lang-key="partner6Name">Agra Nagar Nigam</h3>
+                         <p class="text-sm text-gray-500 mt-2" data-lang-key="partner6Desc">Agra Nagar Nigam is a local government body committed to providing Civic & Infrastructure facilities to the people of the Agra city.</p>
                     </div>
                 </div>
             </div>
@@ -679,6 +684,7 @@
                     partner3Name: 'UNICEF', partner3Desc: 'Working together on youth empowerment and child welfare initiatives.',
                     partner4Name: 'National Health Mission', partner4Desc: 'Partnering on healthcare accessibility and awareness campaigns.',
                     partner5Name: 'Lucknow Nagar Nigam', partner5Desc: 'Driving local urban development and sanitation projects.',
+                    partner6Name: 'Agra Nagar Nigam', partner6Desc: 'Agra Nagar Nigam is a local government body committed to providing Civic & Infrastructure facilities to the people of the Agra city.',
                     footerBrandDesc: 'Driving change through digital engagement.',
                     footerQuickLinksTitle: 'Quick Links', footerLinkAbout: 'About Us', footerLinkInitiatives: 'Initiatives', footerLinkTeam: 'Team', footerLinkContact: 'Contact',
                     footerConnectTitle: 'Connect',
@@ -713,6 +719,7 @@
                     partner3Name: 'यूनिसेफ', partner3Desc: 'युवा सशक्तिकरण और बाल कल्याण पहलों पर एक साथ काम करना।',
                     partner4Name: 'राष्ट्रीय स्वास्थ्य मिशन', partner4Desc: 'स्वास्थ्य सेवा पहुंच और जागरूकता अभियानों पर साझेदारी।',
                     partner5Name: 'लखनऊ नगर निगम', partner5Desc: 'स्थानीय शहरी विकास और स्वच्छता परियोजनाओं को चलाना।',
+                    partner6Name: 'आगरा नगर निगम', partner6Desc: 'आगरा नगर निगम एक स्थानीय सरकारी निकाय है जो आगरा शहर के लोगों को नागरिक और बुनियादी ढांचा सुविधाएं प्रदान करने का प्रयास करती है।',
                     footerBrandDesc: 'डिजिटल जुड़ाव के माध्यम से बदलाव लाना।',
                     footerQuickLinksTitle: 'त्वरित सम्पक', footerLinkAbout: 'हमारे बारे में', footerLinkInitiatives: 'पहल', footerLinkTeam: 'टीम', footerLinkContact: 'संपर्क',
                     footerConnectTitle: 'जुड़ें',
@@ -781,6 +788,8 @@
                 menuCloseIcon.classList.toggle('hidden');
                 body.classList.toggle('overflow-hidden');
                 mobileMenuBackdrop.classList.toggle('hidden');
+                const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
             };
 
             if (mobileMenuBtn) {
@@ -850,17 +859,36 @@
             
             document.querySelectorAll('.card-glow').forEach(card => {
                 const intensity = 15;
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const applyTilt = (clientX, clientY) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = clientX - rect.left; const y = clientY - rect.top;
                     const middleX = rect.width / 2; const middleY = rect.height / 2;
                     const rotateX = ((y - middleY) / middleY) * -intensity; const rotateY = ((x - middleX) / middleX) * intensity;
                     card.style.transition = 'transform 0.1s ease-out';
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                };
+                card.addEventListener('mousemove', (e) => {
+                    applyTilt(e.clientX, e.clientY);
                 });
                 card.addEventListener('mouseleave', () => {
                     card.style.transition = 'transform 0.4s ease-out';
                     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
                 });
+                // Touch support
+                card.addEventListener('touchstart', (e) => {
+                    if (e.touches && e.touches[0]) {
+                        applyTilt(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+                card.addEventListener('touchmove', (e) => {
+                    if (e.touches && e.touches[0]) {
+                        applyTilt(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+                card.addEventListener('touchend', () => {
+                    card.style.transition = 'transform 0.4s ease-out';
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                }, { passive: true });
             });
 
             const navbar = document.getElementById('navbar');

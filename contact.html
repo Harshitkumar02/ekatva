@@ -14,6 +14,9 @@
     <meta property="og:url" content="https://ekatva.org/contact.html">
     <link rel="canonical" href="https://ekatva.org/contact.html">
     <meta name="theme-color" content="#0d9488">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Common head content -->
     <link rel="icon" type="image/x-icon" href="images/ewf.ico">
@@ -120,14 +123,7 @@
             }
         }
         
-        /* Optimize for mobile */
-        @media (max-width: 768px) {
-            .card-glow:hover {
-                transform: none;
-                box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            }
-        }
-        /* Map aspect ratio adjustments for desktop */
+        /* Optimize for mobile - keep glow active */
         @media (min-width: 768px) {
             .map-aspect { padding-bottom: 66.66% !important; /* 3:2 on md+ */ }
         }
@@ -137,6 +133,8 @@
     </script>
 </head>
 <body class="bg-light text-dark/80">
+
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white px-3 py-2 rounded">Skip to content</a>
 
     <div id="preloader"><div class="spinner"></div></div>
 
@@ -221,7 +219,7 @@
     </div>
 
 
-    <main>
+    <main id="main">
         <!-- Hero Section -->
         <section class="relative min-h-[60vh] flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('images/banner2.jpg');">
             <div class="absolute inset-0 bg-dark/60 z-10"></div>
@@ -448,17 +446,22 @@
             
             document.querySelectorAll('.card-glow').forEach(card => {
                 const intensity = 15;
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left; const y = e.clientY - rect.top;
+                const applyTilt = (clientX, clientY) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = clientX - rect.left; const y = clientY - rect.top;
                     const middleX = rect.width / 2; const middleY = rect.height / 2;
                     const rotateX = ((y - middleY) / middleY) * -intensity; const rotateY = ((x - middleX) / middleX) * intensity;
                     card.style.transition = 'transform 0.1s ease-out';
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-                });
+                };
+                card.addEventListener('mousemove', (e) => { applyTilt(e.clientX, e.clientY); });
                 card.addEventListener('mouseleave', () => {
                     card.style.transition = 'transform 0.4s ease-out';
                     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
                 });
+                card.addEventListener('touchstart', (e) => { if (e.touches && e.touches[0]) applyTilt(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+                card.addEventListener('touchmove', (e) => { if (e.touches && e.touches[0]) applyTilt(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+                card.addEventListener('touchend', () => { card.style.transition = 'transform 0.4s ease-out'; card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)'; }, { passive: true });
             });
 
             const navbar = document.getElementById('navbar');
