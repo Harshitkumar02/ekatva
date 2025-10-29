@@ -12,3 +12,7 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /*.log$
 Disallow: /*.tmp$
+
+
+
+the "admin page, settings page, edit job section, create job section,Update Application Status section,filter section of applicant" the ui of these pages and sections have not been improved also some content are not correctly aligned also make sure that all pages and sections are responsive for every device
