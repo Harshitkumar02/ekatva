@@ -114,6 +114,123 @@
         .stack-cycle-btn { margin-top: 2rem; padding: 0.75rem 1.5rem; background-color: #0d9488; color: white; border: none; border-radius: 9999px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         .stack-cycle-btn:hover { background-color: #0f766e; transform: scale(1.05); }
         
+        /* Gallery Card Styles */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-card:hover .gallery-card-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            z-index: 10000;
+        }
+        .lightbox-close:hover {
+            color: #0d9488;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+        .lightbox-nav:hover {
+            background: rgba(13, 148, 136, 0.8);
+        }
+        .lightbox-prev {
+            left: 20px;
+        }
+        .lightbox-next {
+            right: 20px;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            max-width: 80%;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
         /* Performance optimizations */
         * {
             box-sizing: border-box;
@@ -234,22 +351,68 @@
 
     <main id="main">
         <section id="gallery" class="py-12 md:py-20 bg-light">
-            <div class="container mx-auto px-6 text-center">
-                <div class="reveal mb-12">
+            <div class="container mx-auto px-6">
+                <div class="reveal mb-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-3 gradient-text bounce-reveal" data-lang-key="galleryTitle">Gallery</h2>
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-lang-key="gallerySubtitle">A glimpse into our work and the communities we serve.</p>
                 </div>
-                <div class="image-stack-container reveal">
-                    <ul class="image-stack">
-                        <li class="stack-item"><img loading="lazy" src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1470&auto=format&fit=crop" alt="Community Event"></li>
-                        <li class="stack-item"><img loading="lazy" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1470&auto=format&fit=crop" alt="Youth Workshop"></li>
-                        <li class="stack-item"><img loading="lazy" src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=1470&auto=format&fit=crop" alt="Volunteers working"></li>
-                        <li class="stack-item"><img loading="lazy" src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1470&auto=format&fit=crop" alt="Community support"></li>
-                    </ul>
-                    <button class="stack-cycle-btn">Next &rarr;</button>
+                
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="gallery-card reveal" data-index="0">
+                        <img loading="lazy" src="images/swachh-survekshan.png" alt="Swachh Survekshan Campaign">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Swachh Survekshan Campaign</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="1" style="transition-delay: 100ms;">
+                        <img loading="lazy" src="images/water+city.jpg" alt="Water+ City Initiative">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Water+ City Initiative</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="2" style="transition-delay: 200ms;">
+                        <img loading="lazy" src="images/banner2.jpg" alt="Community Event">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Community Event</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="3" style="transition-delay: 300ms;">
+                        <img loading="lazy" src="images/youth.jpg" alt="Youth Workshop">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Youth Workshop</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="4" style="transition-delay: 400ms;">
+                        <img loading="lazy" src="images/banner4.jpg" alt="Volunteers Working">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Volunteers Working</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="5" style="transition-delay: 500ms;">
+                        <img loading="lazy" src="images/shakti.jpg" alt="Community Support">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Community Support</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-card reveal" data-index="6" style="transition-delay: 600ms;">
+                        <img loading="lazy" src="images/khel-mahakabha.jpg" alt="Team Discussion">
+                        <div class="gallery-card-overlay">
+                            <h3 class="font-semibold text-lg">Sansad Khel Mahakumbh – Lucknow</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+            <img class="lightbox-content" id="lightbox-img" alt="">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -395,20 +558,81 @@
             const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-            const stack = document.querySelector('.image-stack');
-            const cycleBtn = document.querySelector('.stack-cycle-btn');
-            if (stack && cycleBtn) {
-                cycleBtn.addEventListener('click', () => {
-                    const topCard = stack.querySelector('.stack-item:first-child');
-                    if (topCard) {
-                        topCard.classList.add('exiting');
-                        setTimeout(() => {
-                            topCard.classList.remove('exiting');
-                            stack.appendChild(topCard);
-                        }, 500);
-                    }
+            // Gallery Lightbox Functionality
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            let currentImageIndex = 0;
+            const images = [];
+
+            // Collect all images
+            galleryCards.forEach((card, index) => {
+                const img = card.querySelector('img');
+                const caption = card.querySelector('h3');
+                images.push({
+                    src: img.src,
+                    alt: img.alt,
+                    caption: caption ? caption.textContent : img.alt
+                });
+
+                card.addEventListener('click', () => {
+                    currentImageIndex = index;
+                    openLightbox();
+                });
+            });
+
+            function openLightbox() {
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                updateLightboxImage();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            function updateLightboxImage() {
+                const current = images[currentImageIndex];
+                lightboxImg.src = current.src;
+                lightboxImg.alt = current.alt;
+                lightboxCaption.textContent = current.caption;
+            }
+
+            function showNext() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateLightboxImage();
+            }
+
+            function showPrev() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateLightboxImage();
+            }
+
+            // Event listeners
+            if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+            if (lightboxNext) lightboxNext.addEventListener('click', showNext);
+            if (lightboxPrev) lightboxPrev.addEventListener('click', showPrev);
+
+            // Close on background click
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
                 });
             }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                if (e.key === 'Escape') closeLightbox();
+                else if (e.key === 'ArrowRight') showNext();
+                else if (e.key === 'ArrowLeft') showPrev();
+            });
 
             const navbar = document.getElementById('navbar');
             
